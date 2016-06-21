@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+  head
+    title Tippayorwaiter
+    link(href='/style.css', rel='stylesheet')
+body(style="text-align: center; font-family: sans-serif")
+  h1 Tip Calculator
+  form(action='/tipcalc', method='post')
+    #bill
+    label Bill Total:  $
+    input(type='number', name='amount', value= amount)
+    #tip
+    label Tip Amount:
+    select(name='tip', value= tip)
+      - let tList = ['5%','10%','15%','20%']
+      each t in tList
+        option= t
+    #button
+    button(type='submit') Calc Tip
+    #total
+    div= '$' + tipTotal
